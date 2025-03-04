@@ -1,24 +1,104 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-  <title>Person Website</title>
-  <style>
-  body {
-            font-family: Arial, sans-serif;
-            padding: 1px;
-            background-image: url("it1.jpg");
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .slider-container {
             position: relative;
-        } 
+            hight: 80%;
+            max-width: 500px;
+            overflow: hidden;
+            border-radius: 100px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+            width: 130%;
+        }
+        .slides img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }9
+
+        /* Footer styling */
+        footer {
+            position: absolute;
+            bottom: 20px;
+        }
+
+        /* Back button styling */
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-  <h1>
-    photo not uploaded yet and i won't upload my pic here even i don't have in my phone
-  </h1>
-  <a href="index.html">BACK</a>
+
+    <div class="slider-container">
+        <div class="slides">
+            <img src="pic1.jpg" alt="Slide 1">
+            <img src="pic2.jpg" alt="Slide 2">
+            <img src="pic3.jpg" alt="Slide 3">
+            <img src="pic4.jpg" alt="Slide 3">
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let index = 0;
+        function moveSlide(step) {
+            const slides = document.querySelector(".slides");
+            const totalSlides = slides.children.length;
+            index = (index + step + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }
+    </script>
+      
+    <!-- Back Button in Footer -->
+    <footer>
+        <a href="index.html" class="back-button">BACK</a>
+    </footer>
+
 </body>
 </html>
