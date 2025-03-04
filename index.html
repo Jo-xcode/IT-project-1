@@ -74,6 +74,45 @@
         <a href="gallery.html">Gallery</a>
         <a href="https://maps.app.goo.gl/sTudA8cnFcXDYHRw9?g_st=ac">Location</a>
     </nav>
+    <head>
+        <style>
+                    .button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Space between buttons */
+    position: absolute; /* Positioning the buttons */
+    right: 10px; /* Moves buttons to the right */
+    buttom: 1500px; /* Adjust as needed to place them properly */
+}
+
+.tech-button {
+    background-color: #808080;
+    color: white;
+    padding: 50px 50px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: background 0.3s ease;
+}
+
+.tech-button:hover {
+    background-color: #45a049;
+}
+    </style>
+</head>
+    <div class="button-container">
+    <button class="tech-button" onclick="openWebsite('https://www.w3schools.com/css/')">CSS</button>
+    <button class="tech-button" onclick="openWebsite('https://www.typescriptlang.org/')">TS</button>
+    <button class="tech-button" onclick="openWebsite('https://www.w3schools.com/html/')">HTML</button>
+    <button class="tech-button" onclick="openWebsite('https://www.w3schools.com/xml/')">XML</button>
+</div>
+
+<script>
+    function openWebsite(url) {
+        window.location.href = url;
+    }
+</script>
     <div class="container">
         <section id="about" class="section profile">
             <img src="profile.jpg" alt="Profile Picture">
