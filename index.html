@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal web site login page</title>
+    <title>Personal Web Site Login Page</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-    background-image: url('it1.jpg'); /* Replace with your image URL */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh; /* Ensures the body takes full viewport height */
-    margin: 0;
-    padding: 0;     
+            background-image: url('it1.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the body takes the full viewport height */
         }
         .container { 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+            flex: 1; /* Pushes the footer down */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .login-container {
             background: white;
@@ -48,34 +53,46 @@
         }
         .error {
             color: red;
+            margin-top: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            margin-top: auto; /* Pushes the footer to the bottom */
         }
     </style>
 </head>
 <body>
 
-<div class="login-container">
-    <h2>Login page</h2>
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-    <button onclick="validateLogin()">Submit</button>
-    <p id="error-message" class="error"></p>
+<div class="container">
+    <div class="login-container">
+        <h2>Login Page</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="validateLogin()">Submit</button>
+        <p id="error-message" class="error"></p> <!-- Corrected error message ID -->
+    </div>
 </div>
+
+<footer>
+    &copy; 2025 Jo-xcode. All rights reserved.
+</footer>
 
 <script>
     function validateLogin() {
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
+        var errorMessage = document.getElementById("error-message"); // Correct ID
 
         if (username === "ka1/john" && password === "1234@abc") {
             window.location.href = "dashboard.html";
         } else {
-            document.getElementById("incorrect password").textContent = "Invalid username or password!";
+            errorMessage.textContent = "Invalid username or password!";
         }
     }
 </script>
-    </div>
-    <footer>
-        &copy; 2025 Jo-xcode. All rights reserved.
-    </footer>
+
 </body>
 </html>
